@@ -1,0 +1,34 @@
+<div class="userInfo">
+    <div class="profileHeader">
+        <div class="profileImgContainer">
+            <img class="profileImg" src="https://i.pravatar.cc" />
+        </div>
+        <div class="userDetail">
+            <h1>Hello {{FirstName}} {{LastName}}</h1>
+            <h2>Username: {{Username}}</h2>
+            <h2>Email: {{Email}}</h2>
+            <h2 id="adminTrue">Admin: {{Admin}}</h2>
+            <a class="btn2" href="/users/logout">LOG OUT</a>
+        </div>
+    </div>
+</div>
+<br>
+<div class="lowerSection">
+    <h1>List of Users</h1>
+    <ul>
+        {{#each users}}
+        <li><strong>Full Name:</strong> {{FirstName}} {{LastName}}</li>
+        <li><strong>Username:</strong> {{Username}}</li>
+        <li><strong>Email:</strong> {{Email}}</li>
+        <li><strong>User Id:</strong> {{UserId}}</li>
+        <li><strong>Admin:</strong> {{Admin}}</li>
+        <li><strong>Deleted:</strong> {{Deleted}}</li>
+        <br>
+        <a class="deletePostBtn" href="/users/admin/viewUser/{{UserId}}">View User</a>
+        <br>
+        <br>
+        <br>
+        <br>
+        {{/each}}
+    </ul>
+</div>

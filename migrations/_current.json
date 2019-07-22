@@ -1,0 +1,122 @@
+{
+    "tables": {
+        "posts": {
+            "tableName": "posts",
+            "schema": {
+                "PostId": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "PostId",
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "PostTitle": {
+                    "allowNull": true,
+                    "field": "PostTitle",
+                    "seqType": "Sequelize.STRING(45)"
+                },
+                "PostBody": {
+                    "allowNull": true,
+                    "field": "PostBody",
+                    "seqType": "Sequelize.STRING(45)"
+                },
+                "userId": {
+                    "allowNull": false,
+                    "references": {
+                        "model": "users",
+                        "key": "UserId"
+                    },
+                    "allowDuplicate": true,
+                    "field": "userId",
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATEONLY"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATEONLY"
+                },
+                "Deleted": {
+                    "allowNull": false,
+                    "defaultValue": {
+                        "value": "0"
+                    },
+                    "field": "Deleted",
+                    "seqType": "Sequelize.BOOLEAN"
+                }
+            },
+            "indexes": []
+        },
+        "users": {
+            "tableName": "users",
+            "schema": {
+                "UserId": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "UserId",
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "FirstName": {
+                    "allowNull": true,
+                    "field": "FirstName",
+                    "seqType": "Sequelize.STRING(45)"
+                },
+                "LastName": {
+                    "allowNull": true,
+                    "field": "LastName",
+                    "seqType": "Sequelize.STRING(45)"
+                },
+                "Username": {
+                    "allowNull": true,
+                    "unique": true,
+                    "field": "Username",
+                    "seqType": "Sequelize.STRING(45)"
+                },
+                "Password": {
+                    "allowNull": true,
+                    "field": "Password",
+                    "seqType": "Sequelize.STRING"
+                },
+                "Email": {
+                    "allowNull": true,
+                    "unique": true,
+                    "field": "Email",
+                    "seqType": "Sequelize.STRING(45)"
+                },
+                "Admin": {
+                    "allowNull": false,
+                    "defaultValue": {
+                        "value": "0"
+                    },
+                    "field": "Admin",
+                    "seqType": "Sequelize.BOOLEAN"
+                },
+                "Deleted": {
+                    "allowNull": false,
+                    "defaultValue": {
+                        "value": "0"
+                    },
+                    "field": "Deleted",
+                    "seqType": "Sequelize.BOOLEAN"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATEONLY"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATEONLY"
+                }
+            },
+            "indexes": []
+        }
+    },
+    "revision": 8
+}

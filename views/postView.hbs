@@ -1,0 +1,51 @@
+<head>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<div class="postViewPage">
+    <div class="postContainer2">
+        <h1 class="postTitle">Title: {{PostTitle}}</h1>
+        <h3 class="postBody">{{PostBody}}</h3>
+    </div>
+
+    <script>
+        function onDelete() {
+            $.ajax({
+                url: '/users/{{userId}}/{{PostId}}/delete',
+                method: 'DELETE', complete: () => window.location = "/users/profile/{{userId}}"
+            })
+        }
+    </script>
+
+        <button class="btn4" onclick="onDelete()" id="deleteButton">Delete Post</button>
+    <div style="margin-top: 30px; border: 1px solid black; width: 500px;">
+
+    </div>
+    <div class="writePost">
+        <h2 class="title2">Edit post!</h2>
+        <form method="POST" action="/users/{{userId}}/{{PostId}}/post" id="posts" name="posts">
+            <div class="postFormInputs">
+                <div class="postFormItems">
+                    <label class="label2" for="postTitle">Title: </label>
+                    <input class="postInput" type="text" id="postTitle"
+                        name="postTitle" />
+                </div>
+                <div class="postFormItems">
+                    <label class="label2" for="postBody">Body: </label>
+                    <br>
+                    <textarea class="postTextArea" type="textarea" rows="7" id="postBody"
+                        name="postBody"></textarea>
+                </div>
+                <div class="postFormButton">
+                    <button class="btn1" type="submit">Update this post!</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <br>
+    <br>
+    <div>
+        <a class="btn2" href='/users/profile/{{userId}}'>Back to Profile</a>
+    </div>
+</div>

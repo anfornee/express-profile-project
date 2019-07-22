@@ -1,0 +1,29 @@
+<head>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<div style="display: flex; align-items: center; flex-direction: column">
+    <div class="postContainer2">
+        <h1 class="postTitle">Title: {{PostTitle}}</h1>
+        <h3 class="postBody">{{PostBody}}</h3>
+
+        <script>
+            function onDelete() {
+                $.ajax({
+                    url: '/users/{{userId}}/{{PostId}}/delete',
+                    method: 'DELETE', complete: () => window.location = "/users/admin/viewUser/{{userId}}"
+                })
+            }
+        </script>
+
+        <div>
+            <button class="btn1" onclick="onDelete()" id="deleteButton">Delete Post</button>
+        </div>
+        <br>
+        <br>
+    </div>
+    <div>
+        <a class="btn2" href='/users/admin/viewUser/{{userId}}'>Back to Profile</a>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+<head>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<div class="pageContainer">
+    <div class="profileContainer">
+        <div class="userInfo">
+            <div class="profileHeader">
+                <div class="profileImgContainer">
+                    <img class="profileImg" src="https://i.pravatar.cc" />
+                </div>
+                <div class="userDetail">
+                    <h1>Hello {{FirstName}} {{LastName}}</h1>
+                    <h2>Username: {{Username}}</h2>
+                    <h2>Email: {{Email}}</h2>
+                    <a class="btn2" href="/users/logout">LOG OUT</a>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="lowerSection">
+            <div class="postSection">
+                <div class="writePost">
+                    <h1>Write a new post!</h1>
+                    <form method="POST" action="/users/profile/{{UserId}}/post" id="posts" name="posts">
+                        <div class="postFormInputs">
+                            <div class="postFormItems">
+                                <label class="label2" for="postTitle">Title: </label>
+                                <input class="postInput" type="text" id="postTitle" name="postTitle" />
+                            </div>
+                            <div class="postFormItems">
+                                <label class="label2" for="postBody">Body: </label>
+                                <br>
+                                <textarea class="postTextArea" type="textarea" rows="4" id="postBody"
+                                    name="postBody"></textarea>
+                            </div>
+                            <div class="postFormButton">
+                                <button class="btn1" type="submit">Post this post!</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="postList">
+                    <h1 class="title">Posts</h1>
+                    {{#each posts}}
+                    <div class="postContainer">
+                        <h3 class="postTitle">Title: {{PostTitle}}</h3>
+                        <p class="postBody">{{PostBody}}</p>
+                        <div>
+                            <a class="deletePostBtn" href="/users/profile/{{userId}}/{{PostId}}">Edit or Delete Post</a>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
